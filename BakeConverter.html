@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<meta name="DC.language" content="en">
+
+<style type="text/css" media="screen, projection">
+body{
+background: #E4E4E4;
+color: #292929;
+color: rgba(0,0,0,0.82);
+font: normal 100% Cambria, Georgia, serif;
+-moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	-webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	-webkit-text-size-adjust: none;
+}
+
+div,input,output,select{
+font-size: 100%;
+}
+
+.instr{
+font-size: 96%;
+}
+</style>
+</head>
+
+<body>
+
+
+
+<div id = "serDiv">
+search : 
+<input id = "ingrIntput" type = "text" list = "ingrList"  onkeyup = "setDen() " onchange = "setDen()" onblur = "setDen()"/>
+</div>
+<hr />
+<div id = "selDiv">
+select : <select id = "ingrSelect" onchange = "setDenSel()" onblur = "setDenSel()"/>
+<input style="visibility:hidden;"/>
+</div>
+<hr />
+<div id="wgtDiv">
+weight(g) : <input id="wgt" type = "text" onkeyup = "handle()" onchange = "handle()" />
+</div>
+<hr />
+<div id="denDiv">
+density(g/ml) :
+</div>
+<hr />
+<div id ="outputDiv">
+volume(ml) : <output id="vol" type="text"> 
+</div>
+<br/><br/><br/>
+<div id="instrDiv" class="instr">
+ReadMe :
+<p class="instr">
+The BakeConverter is very beginning a personal tool for converting weight of 
+baking ingredient to volume so that can easier measure correct amount with a container that has volume graduations on it. If you want to get the beautiful results promised from the recipe but you don't have a Scale to weight the ingrediants, hope this simple tool can help you.<br/><br/>
+
+How to use the BakeConverter:<br/>
+1. Download BakeConverter.html file to your PC or Mobile devices;<br/>
+2. Open the BakeConverter.html with the web browser;<br/>
+3. To start using the tool, first, define the baking ingrediants<br/>
+   either by searching in the search box or select from the drop down list.
+   (searching function may not be valid in some web browsers)<br/>
+4. Key in the wight in the text box and corresponding volume will be generated.<br/><br/>
+
+BakeConverter Version: 1.0 <br/><br/>
+
+If you have any baking ingredients need to be added, bugs report or any ideas you can send me a email<br/>
+shilong.chen1988@gmail.com <br/><br/>
+
+As it's a open source project hosted in the GitHub, you also can fork me at<br/>
+
+
+
+ 	
+  
+</p>
+</div>
+
+<script type="text/javascript">
+
+var volBox = document.getElementById("vol");
+var ingrList = new Array();
+var curDen = 1;
+
+<!-- plain flour -->
+ingrList.push(new ingr("plain flour",0.53));
+<!-- caster sugar -->
+ingrList.push(new ingr("caster sugar",0.33));
+<!-- cornflour -->
+ingrList.push(new ingr("cornflour",0.27));
+
+loadIngrList();
+
+function handle(){
+	document.getElementById("denDiv").innerHTML = "density(g/ml) :" + curDen;
+	document.getElementById("vol").value = ((document.getElementById("wgt").value)/curDen).toFixed(1) + " ml";
+	
+}
+
+function setDen(){
+	for (var i = 0; i < ingrList.length; i++){
+		if (ingrList[i].nam === document.getElementById("ingrIntput").value){
+			curDen = ingrList[i].den;
+				  document.getElementById("ingrSelect").getElementsByTagName('option')[i+1].selected = 'selected';
+		}
+	}
+
+	handle();	
+}
+
+function setDenSel(){
+	for (var i = 0; i < ingrList.length; i++){
+		if (ingrList[i].nam === document.getElementById("ingrSelect").value){
+			curDen = ingrList[i].den;
+document.getElementById("ingrIntput").value = ingrList[i].nam;
+		}
+	}
+
+	handle();	
+}
+
+
+function loadIngrList(){
+
+var ingreListHtml;
+var ingreListHtmlSel =  "<option>please select</option>";
+
+for (var i = 0; i < ingrList.length; i++){
+	ingreListHtml = ingreListHtml + "<option value='" + ingrList[i].nam + "'/>";
+}
+
+for (var i = 0; i < ingrList.length; i++){
+	ingreListHtmlSel = ingreListHtmlSel + "<option>"+ingrList[i].nam+"</option>";
+}
+
+document.getElementById("ingrIntput").innerHTML = "<datalist id= 'ingrList'>" + ingreListHtml + "</datalist>";
+
+document.getElementById("ingrSelect").innerHTML = ingreListHtmlSel;
+
+
+}
+
+
+function ingr(nam, den){
+	this.nam = nam;
+	this.den = den;
+}
+</script>
+</body>
+</html>
