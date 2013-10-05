@@ -10,11 +10,12 @@ How to use the BakeConverter:
 3. To start using the tool, first, define the baking ingrediants
    either by searching in the search box or select from the drop down list.
    (searching function may not be valid in some web browsers)
-4. Key in the wight in the text box and corresponding volume will be generated.<br/><br/>
+4. Key in the wight in the text box and corresponding volume will be generated.
 
 BakeConverter Version: 1.0 
 
 If you have any baking ingredients need to be added, bugs report or any ideas you can send me a email
 shilong.chen1988@gmail.com 
 
-As it's a open source project hosted in the GitHub, you also can fork me at
+As it's a open source project hosted in the GitHub, you also can download the file/source code from
+https://github.com/chensl/BakeConverter 
