@@ -55,22 +55,23 @@ volume(ml) : <output id="vol" type="text">
 ReadMe :
 <p class="instr">
 The BakeConverter is very beginning a personal tool for converting weight of 
-baking ingredient to volume so that can easier measure correct amount with a container that has volume graduations on it. If you want to get the beautiful results promised from the recipe but you don't have a Scale to weight the ingrediants, hope this simple tool can help you.<br/><br/>
+baking ingredient to volume so that can easier measure correct amount with a container that has volume graduations on it. If you want to get the beautiful results promised from the recipe but you don't have a Scale to weight the ingredients, hope this simple tool can help you.<br/><br/>
 
 How to use the BakeConverter:<br/>
 1. Download BakeConverter.html file to your PC or Mobile devices;<br/>
-2. Open the BakeConverter.html with the web browser;<br/>
-3. To start using the tool, first, define the baking ingrediants<br/>
+2. Open the BakeConverter.html with the web browser (Mozilla FireFox is recommended);<br/>
+3. To start using the tool, first, define the baking ingredients<br/>
    either by searching in the search box or select from the drop down list.
    (searching function may not be valid in some web browsers)<br/>
 4. Key in the wight in the text box and corresponding volume will be generated.<br/><br/>
+5. To be easier access to the tool, you can save the page as a Bookmark for the browser in your PC or mobile devices.
 
 BakeConverter Version: 1.0 <br/><br/>
 
-If you have any baking ingredients need to be added, bugs report or any ideas you can send me a email<br/>
+If you have any baking ingredients need to be added, bugs report or any ideas you can send me an email<br/>
 shilong.chen1988@gmail.com <br/><br/>
 
-As it's a open source project hosted in the GitHub, you also can download the file/source code from<br/>
+As it's an open source project hosted in the GitHub, you also can download the file/source code from<br/>
 https://github.com/chensl/BakeConverter 
 </p>
 </div>
@@ -81,18 +82,66 @@ var volBox = document.getElementById("vol");
 var ingrList = new Array();
 var curDen = 1;
 
+<!-- baker's flour -->
+ingrList.push(new ingr("baker's flour",0.54));
+<!-- black bean flour  -->
+ingrList.push(new ingr("black bean flour ",0.49));
+<!-- bread flour -->
+ingrList.push(new ingr("bread flour",0.54));
+<!-- cake flour -->
+ingrList.push(new ingr("cake flour",0.42));
+<!-- coconut flour -->
+ingrList.push(new ingr("coconut flour",0.47));
+<!-- cookie flour -->
+ingrList.push(new ingr("cookie flour",0.46));
+<!-- cornflour -->
+ingrList.push(new ingr("cornflour",0.63));
+<!-- cracker flour  -->
+ingrList.push(new ingr("cracker flour ",0.46));
+<!-- potato flour -->
+ingrList.push(new ingr("potato flour",0.68));
+<!-- pasta flour -->
+ingrList.push(new ingr("pasta flour",0.71));
+<!-- pastry flour -->
+ingrList.push(new ingr("pastry flour",0.46));
+<!-- pizza flour -->
+ingrList.push(new ingr("pizza flour",0.54));
 <!-- plain flour -->
 ingrList.push(new ingr("plain flour",0.53));
+<!-- semolina flour-->
+ingrList.push(new ingr("semolina flour",0.71));
+<!-- wheat flour -->
+ingrList.push(new ingr("wheat flour",0.53)); 
+
+<!-- brown sugar -->
+ingrList.push(new ingr("brown sugar",0.85));
 <!-- caster sugar -->
-ingrList.push(new ingr("caster sugar",0.33));
-<!-- cornflour -->
-ingrList.push(new ingr("cornflour",0.27));
+ingrList.push(new ingr("caster sugar",0.95));
+<!-- confectioners' sugar  -->
+ingrList.push(new ingr("confectioners' sugar ",0.53));
+<!-- icing sugar -->
+ingrList.push(new ingr("icing sugar",0.53));
+<!-- powdered sugar -->
+ingrList.push(new ingr("powdered sugar",0.53));
+<!-- raw sugar -->
+ingrList.push(new ingr("raw sugar",1.06));
+
+<!-- cocoa powder -->
+ingrList.push(new ingr("cocoa powder",0.50));
+
+<!-- table salt -->
+ingrList.push(new ingr("table salt",1.15));
+
+<!-- active dry yeast  -->
+ingrList.push(new ingr("active dry yeast",0.58));
+
+
 
 loadIngrList();
 
 function handle(){
 	document.getElementById("denDiv").innerHTML = "density(g/ml) :" + curDen;
-	document.getElementById("vol").value = ((document.getElementById("wgt").value)/curDen).toFixed(1) + " ml";
+	document.getElementById("vol").value = ((document.getElementById("wgt").value)/curDen).toFixed(1) ;
 	
 }
 
