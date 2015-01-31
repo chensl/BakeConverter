@@ -5,8 +5,8 @@ The BakeConverter is very beginning a personal tool for converting weight of
 baking ingredient to volume so that can easier measure correct amount with a container that has volume graduations on it. If you want to get the beautiful results promised from the recipe but you don't have a Scale to weight the ingredients, hope this simple tool can help you.
 
 How to use the BakeConverter:
-1. Download BakeConverter.html file to your PC or Mobile devices;
-2. Open the BakeConverter.html with the web browser (Mozilla FireFox is recommended);
+1. Download BakeConverter to your PC or Mobile devices with link https://github.com/chensl/BakeConverter/archive/master.zip;
+2. Extarct file download in step 1 and open the BakeConverter.html with the web browser (Mozilla FireFox is recommended);
 3. To start using the tool, first, define the baking ingredients
    either by searching in the search box or select from the drop down list.
    (searching function may not be valid in some web browsers)
